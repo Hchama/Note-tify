@@ -130,7 +130,12 @@ function showTasks({Title: task, Date: dataValue}) {
 
          const task_date = document.createElement("span");
          task_date.classList.add("date");
-         task_date.innerHTML = dataValue;
+         let dateObj = new Date(dateValue);
+         let FormattedDate = dateObj.toLocaleString("en-US", {
+            month: "long", 
+            day: "numeric"
+         });
+         task_date.innerHTML = FormattedDate;
          task_el.appendChild(task_date);
 
       tasks.appendChild(task_el);
